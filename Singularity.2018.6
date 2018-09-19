@@ -28,10 +28,10 @@ This container runs QIIME 2.
     apt-get clean
 
     # Install miniconda
-    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-    bash Miniconda3-latest-Linux-x86_64.sh
-    conda update -y conda
-    rm -rf Miniconda3-latest-Linux-x86_64.sh
+    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda3.sh
+    bash miniconda3.sh -b -p /opt/miniconda3
+    rm miniconda3.sh
+    export PATH="/opt/miniconda3/bin:$PATH"
     
     # Install QIIME 2
     wget https://data.qiime2.org/distro/core/qiime2-2018.6-py35-linux-conda.yml
