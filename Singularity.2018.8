@@ -3,16 +3,16 @@ From: ubuntu:16.04
 
 %labels
 Maintainer Matthew Flister
-Version 2018.6
+Version 2018.8
 
 %help
-This container runs QIIME 2.
+This container runs QIIME2.
 
 %environment
     export PATH=/opt/miniconda3/bin:$PATH
 
 %runscript
-    source activate qiime2-2018.6
+    source activate qiime2-2018.8
     exec qiime "${@}"
 
 %post
@@ -27,6 +27,10 @@ This container runs QIIME 2.
         locales \
         wget
     apt-get clean
+    echo "LC_ALL=en_US.UTF-8" >> /etc/environment
+    echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+    echo "LANG=en_US.UTF-8" > /etc/locale.conf
+    locale-gen en_US.UTF-8
 
     # Install miniconda
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda3.sh
