@@ -9,9 +9,10 @@ Version 2018.6
 This container runs QIIME 2.
 
 %environment
-    source activate qiime2-2018.6
+    
 
 %runscript
+    source activate qiime2-2018.6
     exec qiime "${@}"
 
 %post
